@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>JSDoc: Source: components/event-card/index.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="styles/prettify-tomorrow.css"
+    />
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css" />
+  </head>
+
+  <body>
+    <div id="main">
+      <h1 class="page-title">Source: components/event-card/index.jsx</h1>
+
+      <section>
+        <article>
+          <pre class="prettyprint source linenums"><code>/** @jsx jsx */
+import { Flex, jsx, Text } from 'theme-ui';
+import * as React from 'react';
+import IconText from '../icon-text';
+import * as styles from './index.styles';
+import AuthContext from '../../security/auth.context';
+
+/**
+ * Renders an event card
+ * @param {object} event an event
+ * @param {number} index determines direction of gradient
+ */
+const EventCard = ({ event, index, ...rest }) => {
+  const [isAttending, setIsAttending] = React.useState(false);
+  const [isOwner, setIsOwner] = React.useState(false);
+  const [{ user }] = React.useContext(AuthContext);
+
+  React.useEffect(() => {
+    if (
+      event.bookings !== [] &amp;&amp;
+      event.bookings.filter((booking) => booking.user._id === user.id).length >
+        0
+    ) {
+      setIsAttending(true);
+    }
+
+    if (event.user._id === user.id) {
+      setIsOwner(true);
+    }
+  }, [event, user]);
+
+  const eventDate = React.useMemo(() => {
+    let date = new Date(Date.parse(event.timeStart));
+    console.log(date);
+    return date.toLocaleDateString();
+  }, [event.timeStart]);
+
+  const eventTime = React.useMemo(() => {
+    let startTime = new Date(Date.parse(event.timeStart));
+    let endTime = new Date(Date.parse(event.timeEnd));
+    let formatter = Intl.DateTimeFormat('default', {
+      hour12: true,
+      hour: 'numeric',
+      minute: 'numeric',
+    });
+
+    let formattedStartTime = formatter.format(startTime);
+    let formattedEndTime = formatter.format(endTime);
+
+    return formattedStartTime === formattedEndTime
+      ? formattedStartTime
+      : `${formattedStartTime} - ${formattedEndTime}`;
+  }, [event.timeStart, event.timeEnd]);
+
+  return (
+    &lt;Flex
+      sx={styles.eventCardContainerCss(
+        event.featured ? 'featured' : 'normal',
+        index
+      )}
+      {...rest}
+    >
+      &lt;Flex sx={styles.eventCardHeaderCss}>
+        &lt;Text variant="heading">{event.title}&lt;/Text>
+        {(isAttending || isOwner) &amp;&amp; (
+          &lt;Text variant="subtitle">
+            {isAttending &amp;&amp; 'ATTENDING'} {isOwner &amp;&amp; '| OWNER'}
+          &lt;/Text>
+        )}
+      &lt;/Flex>
+      &lt;Flex sx={styles.eventDetailsCss}>
+        &lt;IconText variant="event">{eventDate}&lt;/IconText>
+        &lt;IconText variant="timer">{eventTime}&lt;/IconText>
+        &lt;IconText variant="group">
+          {event.attendees}/{event.maxAttendees}
+        &lt;/IconText>
+        &lt;IconText variant="local-offer">
+          {Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'AUD',
+          }).format(event.fee)}
+        &lt;/IconText>
+        &lt;IconText variant="place">{`${event.address.street}, ${event.address.city}, ${event.address.state} ${event.address.postcode}`}&lt;/IconText>
+      &lt;/Flex>
+    &lt;/Flex>
+  );
+};
+
+export default EventCard;
+</code></pre>
+        </article>
+      </section>
+    </div>
+
+    <nav>
+      <h2><a href="index.html">Home</a></h2>
+      <h3>Global</h3>
+      <ul>
+        <li><a href="global.html#AuthContext">AuthContext</a></li>
+        <li><a href="global.html#authenticate">authenticate</a></li>
+        <li><a href="global.html#AuthProvider">AuthProvider</a></li>
+        <li><a href="global.html#authReducer">authReducer</a></li>
+        <li><a href="global.html#BookingCard">BookingCard</a></li>
+        <li><a href="global.html#BookingsList">BookingsList</a></li>
+        <li><a href="global.html#cancel">cancel</a></li>
+        <li><a href="global.html#create">create</a></li>
+        <li><a href="global.html#CustomButton">CustomButton</a></li>
+        <li><a href="global.html#deleteCookie">deleteCookie</a></li>
+        <li><a href="global.html#Divider">Divider</a></li>
+        <li><a href="global.html#EventCard">EventCard</a></li>
+        <li><a href="global.html#EventsList">EventsList</a></li>
+        <li><a href="global.html#follow">follow</a></li>
+        <li><a href="global.html#FullPageSpinner">FullPageSpinner</a></li>
+        <li><a href="global.html#getAll">getAll</a></li>
+        <li><a href="global.html#getByEventId">getByEventId</a></li>
+        <li><a href="global.html#getById">getById</a></li>
+        <li><a href="global.html#getByUser">getByUser</a></li>
+        <li><a href="global.html#getByUserId">getByUserId</a></li>
+        <li><a href="global.html#getCookie">getCookie</a></li>
+        <li><a href="global.html#getForCurrentUser">getForCurrentUser</a></li>
+        <li><a href="global.html#getHeaders">getHeaders</a></li>
+        <li><a href="global.html#GradientText">GradientText</a></li>
+        <li><a href="global.html#HeroLayout">HeroLayout</a></li>
+        <li><a href="global.html#IconText">IconText</a></li>
+        <li><a href="global.html#InputGroup">InputGroup</a></li>
+        <li><a href="global.html#Logo">Logo</a></li>
+        <li><a href="global.html#Nav">Nav</a></li>
+        <li><a href="global.html#register">register</a></li>
+        <li><a href="global.html#setCookie">setCookie</a></li>
+        <li><a href="global.html#SvgIcon">SvgIcon</a></li>
+        <li><a href="global.html#SvgIllustration">SvgIllustration</a></li>
+        <li><a href="global.html#toDateTime">toDateTime</a></li>
+        <li><a href="global.html#unfollow">unfollow</a></li>
+        <li><a href="global.html#update">update</a></li>
+        <li><a href="global.html#useLoadEvents">useLoadEvents</a></li>
+        <li><a href="global.html#useLoadMyBookings">useLoadMyBookings</a></li>
+        <li><a href="global.html#UserCard">UserCard</a></li>
+        <li><a href="global.html#UserList">UserList</a></li>
+        <li><a href="global.html#UserMenu">UserMenu</a></li>
+        <li><a href="global.html#useViewport">useViewport</a></li>
+        <li><a href="global.html#validateToken">validateToken</a></li>
+      </ul>
+    </nav>
+
+    <br class="clear" />
+
+    <footer>
+      Documentation generated by
+      <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Tue Nov 03
+      2020 23:36:14 GMT+1100 (Australian Eastern Daylight Time)
+    </footer>
+
+    <script>
+      prettyPrint();
+    </script>
+    <script src="scripts/linenumber.js"></script>
+  </body>
+</html>

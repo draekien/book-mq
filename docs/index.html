@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="styles/prettify-tomorrow.css"
+    />
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css" />
+  </head>
+
+  <body>
+    <div id="main">
+      <h1 class="page-title">Home</h1>
+
+      <h3></h3>
+
+      <section>
+        <article>
+          <h1>Group H - BookMQ</h1>
+          <blockquote>
+            <p>
+              Members: Henrietta Guo, Tatianna Lee, William Pei, Dong Hyun Lee
+            </p>
+          </blockquote>
+          <p>
+            <a
+              href="https://classroom.github.com/online_ide?assignment_repo_id=295530&amp;assignment_repo_type=GroupAssignmentRepo"
+              ><img
+                src="https://classroom.github.com/assets/work-in-replit-14baed9a392b3a25080506f3b7b6d57f295ec2978f6f33ec97e36a161684cbe9.svg"
+                alt="Work in Repl.it"
+            /></a>
+          </p>
+          <ul>
+            <li>
+              <a href="#group-h---bookmq">Group H - BookMQ</a>
+              <ul>
+                <li>
+                  <a href="#application-outline">Application Outline</a>
+                  <ul>
+                    <li><a href="#purpose">Purpose</a></li>
+                    <li><a href="#target-user-group">Target User Group</a></li>
+                    <li><a href="#data-sources">Data Sources</a></li>
+                  </ul>
+                </li>
+                <li><a href="#milestones-achieved">Milestones achieved</a></li>
+                <li>
+                  <a href="#source-code-guide">Source Code Guide</a>
+                  <ul>
+                    <li>
+                      <a href="#server"><code>server</code></a>
+                    </li>
+                    <li>
+                      <a href="#src"><code>src</code></a>
+                    </li>
+                  </ul>
+                </li>
+                <li><a href="#next-steps">Next Steps</a></li>
+                <li>
+                  <a href="#main-roles-and-communication"
+                    >Main Roles and Communication</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h2>Application Outline</h2>
+          <h3>Purpose</h3>
+          <p>
+            The main purpose of this applicaiton is to provide a tutoring /
+            buddying system for Macquarie University Students and Teachers.
+          </p>
+          <h3>Target User Group</h3>
+          <p>
+            The target audience is Macquarie University students and teachers.
+            There are two user classes: event organizers and event attendees.
+          </p>
+          <p>Event organizers:</p>
+          <ul>
+            <li>
+              Create a tutoring or other type of service
+              <ul>
+                <li>Specify availability</li>
+                <li>Set description / title</li>
+                <li>Set fee</li>
+                <li>Set max attendees</li>
+              </ul>
+            </li>
+          </ul>
+          <p>Event attendees:</p>
+          <ul>
+            <li>Book in a day and time slot for a tutoring service or event</li>
+            <li>Leave feedback for attended services and events</li>
+          </ul>
+          <p>
+            We originally intended for the events to have the option for one-off
+            or recurring. However we deemed the recurring events too complex for
+            the MVP. As such, event organizers are only able to create an
+            one-off event, and event attendees are only able to book a time for
+            the entire event's duration.
+          </p>
+          <h3>Data Sources</h3>
+          <p>
+            It was originally planned to use the Google Places / Maps APIs to
+            display event location and autocomplete addresses, as well as Google
+            federated login so that users can use their Macquarie University
+            user accounts to sign into the website. However, the Google APIs
+            cost money to use, and we did not have the permissions to implement
+            federated login for Macquarie University google accounts.
+          </p>
+          <h2>Milestones achieved</h2>
+          <p>
+            Please see below for atable of milestones that we have achieved in
+            the MVP
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>Milestone / Feature</th>
+                <th>Description</th>
+                <th>Achieved</th>
+                <th>Comments</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>User registration</td>
+                <td>Ability to create an user account</td>
+                <td>✓</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>User login</td>
+                <td>Ability to sign in with created user account</td>
+                <td>✓</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>User profile</td>
+                <td>
+                  Each user shall have their own user profile page where they
+                  can set a biography and view the list of events they have
+                  created
+                </td>
+                <td>✓</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Create event</td>
+                <td>
+                  An authenticated user shall have the ability to create a new
+                  event
+                </td>
+                <td>✓</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Edit event</td>
+                <td>
+                  An event owner shall be able to edit the details of their
+                  event
+                </td>
+                <td>✗</td>
+                <td>Deemed not needed for MVP</td>
+              </tr>
+              <tr>
+                <td>Delete event</td>
+                <td>An event owner shall be able to delete their events</td>
+                <td>✗</td>
+                <td>Deemed not needed for MVP</td>
+              </tr>
+              <tr>
+                <td>View event</td>
+                <td>
+                  An authenticated user shall have the ability to view created
+                  events
+                </td>
+                <td>✓</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Book event</td>
+                <td>
+                  An authenticated user shall have the ability to book
+                  themselves into an event
+                </td>
+                <td>✓</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>View Bookings</td>
+                <td>
+                  An event owner shall be able to view bookings for their event.
+                  Each booking shall display the name of the attendee and the
+                  number of attendees
+                </td>
+                <td>✗</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>View attending events</td>
+                <td>
+                  An authenticated user shall be able to view a list of events
+                  they are attending
+                </td>
+                <td>✓</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Follow other users</td>
+                <td>
+                  An authenticated user shall be able to follow another user
+                </td>
+                <td>✓</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <h2>Source Code Guide</h2>
+          <p>
+            Our code is split into the server code located in the
+            <code>server</code> folder, and the frontend code located in the
+            <code>src</code> folder.
+          </p>
+          <h3><code>server</code></h3>
+          <p>
+            Please see below descriptions for what each folder in the
+            <code>server</code> folder is used for.
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th><code>foldername</code></th>
+                <th>description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>__tests__</code></td>
+                <td>
+                  contains test suites for all of the routers provided by the
+                  api
+                </td>
+              </tr>
+              <tr>
+                <td><code>middleware</code></td>
+                <td>
+                  contains custom middleware for making sure users are
+                  authenticated
+                </td>
+              </tr>
+              <tr>
+                <td><code>models</code></td>
+                <td>
+                  contains our MongoDB models for Bookings, Events, Profiles,
+                  and Users
+                </td>
+              </tr>
+              <tr>
+                <td><code>routers</code></td>
+                <td>contains all the routing logic for the API</td>
+              </tr>
+              <tr>
+                <td><code>services</code></td>
+                <td>
+                  contains logic for creating, updating or deleting bookings,
+                  events, profiles and users
+                </td>
+              </tr>
+              <tr>
+                <td><code>utils</code></td>
+                <td>
+                  contains utilities for getting tokens from requests,
+                  configuration, logging, and object validation
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h3><code>src</code></h3>
+          <p>
+            please see below descriptions for what each folder in the
+            <code>src</code> folder is used for.
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th><code>foldername</code></th>
+                <th>description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>assets</code></td>
+                <td>
+                  contains all the assets used in the frontend, i.e.
+                  illustrations from unDraw
+                </td>
+              </tr>
+              <tr>
+                <td><code>components</code></td>
+                <td>contains all the components that help make up the app</td>
+              </tr>
+              <tr>
+                <td><code>hooks</code></td>
+                <td>
+                  contains custom hooks for loading events, bookings, and
+                  getting viewport size
+                </td>
+              </tr>
+              <tr>
+                <td><code>layouts</code></td>
+                <td>contains reusable layouts for use in pages</td>
+              </tr>
+              <tr>
+                <td><code>pages</code></td>
+                <td>contains all the individual pages in the app</td>
+              </tr>
+              <tr>
+                <td><code>security</code></td>
+                <td>contains the authentication context for the app</td>
+              </tr>
+              <tr>
+                <td><code>services</code></td>
+                <td>contains service logic for interfacing with the API</td>
+              </tr>
+              <tr>
+                <td><code>theme</code></td>
+                <td>
+                  contains the theme definitions used by the theme-ui library
+                </td>
+              </tr>
+              <tr>
+                <td><code>utils</code></td>
+                <td>
+                  contains utilties such as axios util, config, datetime util,
+                  and local storage (for cookies)
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h2>Next Steps</h2>
+          <p>Our next steps in the project would be as follows:</p>
+          <ol>
+            <li>complete implementation for editing / deleting events</li>
+            <li>complete implementation for editing / deleting bookings</li>
+            <li>
+              add the ability to export events into Outlook, iCal, or Google
+              calendar
+            </li>
+            <li>
+              add payment processing integration with a payment gateway, i.e.
+              Stripe
+            </li>
+            <li>add email notifications to remind users of upcoming events</li>
+            <li>
+              add a Google Map alternative to the site to display event
+              locations
+            </li>
+            <li>
+              add validation / autocomplete to address inputs to ensure valid
+              addresses are entered
+            </li>
+          </ol>
+          <h2>Main Roles and Communication</h2>
+          <p>We originally decided on the below roles:</p>
+          <ul>
+            <li>William Pei: backend expert</li>
+            <li>Henrietta Guo: frontend expert</li>
+            <li>Tatianna Lee: database expert</li>
+            <li>Dong Hyun Lee: testing expert</li>
+          </ul>
+          <p>
+            However, Dong Hyun has been absent for the entirity of this project,
+            and so the testing role was split between the three remaining group
+            memebers. In terms of communication, the team set up a messenger
+            group where users could communicate freely with each other. We used
+            this group to delegate tasks as well as make sure each person was on
+            track.
+          </p>
+        </article>
+      </section>
+    </div>
+
+    <nav>
+      <h2><a href="index.html">Home</a></h2>
+      <h3>Global</h3>
+      <ul>
+        <li><a href="global.html#AuthContext">AuthContext</a></li>
+        <li><a href="global.html#authenticate">authenticate</a></li>
+        <li><a href="global.html#AuthProvider">AuthProvider</a></li>
+        <li><a href="global.html#authReducer">authReducer</a></li>
+        <li><a href="global.html#BookingCard">BookingCard</a></li>
+        <li><a href="global.html#BookingsList">BookingsList</a></li>
+        <li><a href="global.html#cancel">cancel</a></li>
+        <li><a href="global.html#create">create</a></li>
+        <li><a href="global.html#CustomButton">CustomButton</a></li>
+        <li><a href="global.html#deleteCookie">deleteCookie</a></li>
+        <li><a href="global.html#Divider">Divider</a></li>
+        <li><a href="global.html#EventCard">EventCard</a></li>
+        <li><a href="global.html#EventsList">EventsList</a></li>
+        <li><a href="global.html#follow">follow</a></li>
+        <li><a href="global.html#FullPageSpinner">FullPageSpinner</a></li>
+        <li><a href="global.html#getAll">getAll</a></li>
+        <li><a href="global.html#getByEventId">getByEventId</a></li>
+        <li><a href="global.html#getById">getById</a></li>
+        <li><a href="global.html#getByUser">getByUser</a></li>
+        <li><a href="global.html#getByUserId">getByUserId</a></li>
+        <li><a href="global.html#getCookie">getCookie</a></li>
+        <li><a href="global.html#getForCurrentUser">getForCurrentUser</a></li>
+        <li><a href="global.html#getHeaders">getHeaders</a></li>
+        <li><a href="global.html#GradientText">GradientText</a></li>
+        <li><a href="global.html#HeroLayout">HeroLayout</a></li>
+        <li><a href="global.html#IconText">IconText</a></li>
+        <li><a href="global.html#InputGroup">InputGroup</a></li>
+        <li><a href="global.html#Logo">Logo</a></li>
+        <li><a href="global.html#Nav">Nav</a></li>
+        <li><a href="global.html#register">register</a></li>
+        <li><a href="global.html#setCookie">setCookie</a></li>
+        <li><a href="global.html#SvgIcon">SvgIcon</a></li>
+        <li><a href="global.html#SvgIllustration">SvgIllustration</a></li>
+        <li><a href="global.html#toDateTime">toDateTime</a></li>
+        <li><a href="global.html#unfollow">unfollow</a></li>
+        <li><a href="global.html#update">update</a></li>
+        <li><a href="global.html#useLoadEvents">useLoadEvents</a></li>
+        <li><a href="global.html#useLoadMyBookings">useLoadMyBookings</a></li>
+        <li><a href="global.html#UserCard">UserCard</a></li>
+        <li><a href="global.html#UserList">UserList</a></li>
+        <li><a href="global.html#UserMenu">UserMenu</a></li>
+        <li><a href="global.html#useViewport">useViewport</a></li>
+        <li><a href="global.html#validateToken">validateToken</a></li>
+      </ul>
+    </nav>
+
+    <br class="clear" />
+
+    <footer>
+      Documentation generated by
+      <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Tue Nov 03
+      2020 23:36:14 GMT+1100 (Australian Eastern Daylight Time)
+    </footer>
+
+    <script>
+      prettyPrint();
+    </script>
+    <script src="scripts/linenumber.js"></script>
+  </body>
+</html>

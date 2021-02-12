@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>JSDoc: Source: components/svg-icon/index.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="styles/prettify-tomorrow.css"
+    />
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css" />
+  </head>
+
+  <body>
+    <div id="main">
+      <h1 class="page-title">Source: components/svg-icon/index.jsx</h1>
+
+      <section>
+        <article>
+          <pre class="prettyprint source linenums"><code>/** @jsx jsx */
+import { jsx } from 'theme-ui';
+import * as ReactIcon from 'react-icons/md';
+
+/**
+ * Renders an icon component
+ * @param {string} variant one of account-circle, alternate-email,
+ * arrow-forward, event, group, local-offer, lock, place, schedule,
+ * search, timer, update, add, attach-money
+ * @example
+ * &lt;Icon variant="account-circle" />
+ */
+const SvgIcon = ({ variant, ...rest }) => {
+  switch (variant) {
+    case 'account-circle':
+      return &lt;ReactIcon.MdAccountCircle {...rest} />;
+    case 'alternate-email':
+      return &lt;ReactIcon.MdEmail {...rest} />;
+    case 'arrow-forward':
+      return &lt;ReactIcon.MdArrowForward {...rest} />;
+    case 'event':
+      return &lt;ReactIcon.MdEvent {...rest} />;
+    case 'group':
+      return &lt;ReactIcon.MdGroup {...rest} />;
+    case 'local-offer':
+      return &lt;ReactIcon.MdLocalOffer {...rest} />;
+    case 'lock':
+      return &lt;ReactIcon.MdLock {...rest} />;
+    case 'place':
+      return &lt;ReactIcon.MdPlace {...rest} />;
+    case 'schedule':
+      return &lt;ReactIcon.MdSchedule {...rest} />;
+    case 'search':
+      return &lt;ReactIcon.MdSearch {...rest} />;
+    case 'timer':
+      return &lt;ReactIcon.MdTimer {...rest} />;
+    case 'update':
+      return &lt;ReactIcon.MdUpdate {...rest} />;
+    case 'add':
+      return &lt;ReactIcon.MdAdd {...rest} />;
+    case 'attach-money':
+      return &lt;ReactIcon.MdAttachMoney {...rest} />;
+    default:
+      throw new Error('You must specify an icon variant');
+  }
+};
+
+export default SvgIcon;
+</code></pre>
+        </article>
+      </section>
+    </div>
+
+    <nav>
+      <h2><a href="index.html">Home</a></h2>
+      <h3>Global</h3>
+      <ul>
+        <li><a href="global.html#AuthContext">AuthContext</a></li>
+        <li><a href="global.html#authenticate">authenticate</a></li>
+        <li><a href="global.html#AuthProvider">AuthProvider</a></li>
+        <li><a href="global.html#authReducer">authReducer</a></li>
+        <li><a href="global.html#BookingCard">BookingCard</a></li>
+        <li><a href="global.html#BookingsList">BookingsList</a></li>
+        <li><a href="global.html#cancel">cancel</a></li>
+        <li><a href="global.html#create">create</a></li>
+        <li><a href="global.html#CustomButton">CustomButton</a></li>
+        <li><a href="global.html#deleteCookie">deleteCookie</a></li>
+        <li><a href="global.html#Divider">Divider</a></li>
+        <li><a href="global.html#EventCard">EventCard</a></li>
+        <li><a href="global.html#EventsList">EventsList</a></li>
+        <li><a href="global.html#follow">follow</a></li>
+        <li><a href="global.html#FullPageSpinner">FullPageSpinner</a></li>
+        <li><a href="global.html#getAll">getAll</a></li>
+        <li><a href="global.html#getByEventId">getByEventId</a></li>
+        <li><a href="global.html#getById">getById</a></li>
+        <li><a href="global.html#getByUser">getByUser</a></li>
+        <li><a href="global.html#getByUserId">getByUserId</a></li>
+        <li><a href="global.html#getCookie">getCookie</a></li>
+        <li><a href="global.html#getForCurrentUser">getForCurrentUser</a></li>
+        <li><a href="global.html#getHeaders">getHeaders</a></li>
+        <li><a href="global.html#GradientText">GradientText</a></li>
+        <li><a href="global.html#HeroLayout">HeroLayout</a></li>
+        <li><a href="global.html#IconText">IconText</a></li>
+        <li><a href="global.html#InputGroup">InputGroup</a></li>
+        <li><a href="global.html#Logo">Logo</a></li>
+        <li><a href="global.html#Nav">Nav</a></li>
+        <li><a href="global.html#register">register</a></li>
+        <li><a href="global.html#setCookie">setCookie</a></li>
+        <li><a href="global.html#SvgIcon">SvgIcon</a></li>
+        <li><a href="global.html#SvgIllustration">SvgIllustration</a></li>
+        <li><a href="global.html#toDateTime">toDateTime</a></li>
+        <li><a href="global.html#unfollow">unfollow</a></li>
+        <li><a href="global.html#update">update</a></li>
+        <li><a href="global.html#useLoadEvents">useLoadEvents</a></li>
+        <li><a href="global.html#useLoadMyBookings">useLoadMyBookings</a></li>
+        <li><a href="global.html#UserCard">UserCard</a></li>
+        <li><a href="global.html#UserList">UserList</a></li>
+        <li><a href="global.html#UserMenu">UserMenu</a></li>
+        <li><a href="global.html#useViewport">useViewport</a></li>
+        <li><a href="global.html#validateToken">validateToken</a></li>
+      </ul>
+    </nav>
+
+    <br class="clear" />
+
+    <footer>
+      Documentation generated by
+      <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Tue Nov 03
+      2020 23:36:14 GMT+1100 (Australian Eastern Daylight Time)
+    </footer>
+
+    <script>
+      prettyPrint();
+    </script>
+    <script src="scripts/linenumber.js"></script>
+  </body>
+</html>

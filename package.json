@@ -1,0 +1,81 @@
+{
+  "name": "book-mq",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/core": "^10.1.1",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "@types/react": "^16.9.55",
+    "axios": "^0.20.0",
+    "bcrypt": "^5.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "heroku": "^7.46.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.9",
+    "mongoose-deep-populate": "^3.2.0",
+    "mongoose-unique-validator": "^2.0.3",
+    "react": "^16.13.1",
+    "react-burger-menu": "^2.9.0",
+    "react-dom": "^16.13.1",
+    "react-google-recaptcha": "^2.1.0",
+    "react-icons": "^3.11.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.3",
+    "react-transition-group": "^4.4.1",
+    "reakit": "^1.2.5",
+    "swagger-jsdoc": "^4.2.3",
+    "swagger-ui-express": "^4.1.4",
+    "theme-ui": "^0.3.1"
+  },
+  "devDependencies": {
+    "better-docs": "^2.3.2",
+    "cross-env": "^7.0.2",
+    "husky": "^4.3.0",
+    "jsdoc": "^3.6.6",
+    "lint-staged": "^10.4.0",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.1.2",
+    "supertest": "^5.0.0"
+  },
+  "scripts": {
+    "dev-server": "cross-env NODE_ENV=development nodemon server/index.js",
+    "server-test": "cross-env NODE_ENV=test jest ./server --verbose --runInBand",
+    "start": "react-scripts start",
+    "build": "rm -rf build && react-scripts build && cp -r build server/",
+    "build:ui": "rm -rf build && npm run build && cp -r build server/",
+    "deploy": "git push heroku master",
+    "deploy:full": "npm run build:ui && npm run deploy",
+    "logs:prod": "heroku logs --tail",
+    "test": "react-scripts test",
+    "docs": "jsdoc -c jsdoc.conf.json",
+    "eject": "react-scripts eject"
+  },
+  "proxy": "http://localhost:3001",
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,css,md,jsx,html,json}": "prettier --write"
+  }
+}

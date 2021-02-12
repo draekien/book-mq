@@ -1,0 +1,36 @@
+/**
+ * Reducer for AuthProvider
+ * @param {object} prevState the previous state
+ * @param {object} action contains action type and additional info required for state update
+ */
+export const authReducer = (prevState, action) => {
+  switch (action.type) {
+    case 'RESTORE_TOKEN':
+      return {
+        ...prevState,
+        userToken: action.token,
+        user: action.user,
+        isLoading: false,
+      };
+    case 'SIGN_IN':
+      return {
+        ...prevState,
+        isSignout: false,
+        userToken: action.token,
+        user: action.user,
+        isLoading: false,
+      };
+    case 'SIGN_OUT':
+      return {
+        ...prevState,
+        isSignout: true,
+        userToken: null,
+        user: null,
+        isLoading: false,
+      };
+    default:
+      return {
+        ...prevState,
+      };
+  }
+};
